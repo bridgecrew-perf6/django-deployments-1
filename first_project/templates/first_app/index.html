@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First APP</title>
+</head>
+<body>
+    <h1>Hello this is index.html</h1>
+    <h2>Displaying the Database </h2>
+    <div class="djangotwo">
+        {% if access_record %}
+        <table border="solid">
+            <thead>
+                <th>Site Name</th>
+                <th>Date Accesed</th>
+            </thead>
+
+            {% for acc in access_record %}
+            <tr>
+                <td>{{ acc.name|upper }}</td>
+                <td>{{ acc.date }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+            <p>No access record founds !!</p>
+        {% endif %}
+    </div>
+</body>
+</html>
